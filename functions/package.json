@@ -9,8 +9,11 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.4",
+    "firebase": "^5.7.0",
     "firebase-admin": "~6.0.0",
+    "firebase-auth": "^0.1.2",
     "firebase-functions": "^2.1.0"
   },
   "private": true

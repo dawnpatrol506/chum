@@ -15,8 +15,8 @@ class LoginForm extends React.Component {
 
     handleSubmit = (event) => {
         axios.post('/api/v1/login', {
-            first: this.state.first,
-            last: this.state.last
+            email: this.state.email,
+            password: this.state.password
         })
         .then(res => console.log(res))
         event.preventDefault();
@@ -26,12 +26,12 @@ class LoginForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    First: 
-                    <input name="first" type="text" value={this.state.first} onChange={this.handleChange} />
+                    email
+                    <input name="email" type="text" value={this.state.first} onChange={this.handleChange} />
                 </label>
                 <label>
-                    Last:
-                    <input name="last" type="text" value={this.state.last} onChange={this.handleChange} />
+                    password
+                    <input name="password" type="password" value={this.state.last} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" />
             </form>
