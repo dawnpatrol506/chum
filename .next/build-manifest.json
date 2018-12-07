@@ -3,23 +3,28 @@
   "pages": {
     "/index": [
       "static/runtime/webpack-42652fa8b82c329c0559.js",
-      "static/chunks/commons.76757ae52359ab6c9c2b.js",
-      "static/runtime/main-4718a9919cedd596ae0a.js"
+      "static/chunks/commons.4961b7d5b846da4ce748.js",
+      "static/runtime/main-719bc34392ec9206b90a.js"
+    ],
+    "/LoginEmail": [
+      "static/runtime/webpack-42652fa8b82c329c0559.js",
+      "static/chunks/commons.4961b7d5b846da4ce748.js",
+      "static/runtime/main-719bc34392ec9206b90a.js"
     ],
     "/_app": [
       "static/runtime/webpack-42652fa8b82c329c0559.js",
-      "static/chunks/commons.76757ae52359ab6c9c2b.js",
-      "static/runtime/main-4718a9919cedd596ae0a.js"
+      "static/chunks/commons.4961b7d5b846da4ce748.js",
+      "static/runtime/main-719bc34392ec9206b90a.js"
     ],
     "/_error": [
       "static/runtime/webpack-42652fa8b82c329c0559.js",
-      "static/chunks/commons.76757ae52359ab6c9c2b.js",
-      "static/runtime/main-4718a9919cedd596ae0a.js"
+      "static/chunks/commons.4961b7d5b846da4ce748.js",
+      "static/runtime/main-719bc34392ec9206b90a.js"
     ],
     "/": [
       "static/runtime/webpack-42652fa8b82c329c0559.js",
-      "static/chunks/commons.76757ae52359ab6c9c2b.js",
-      "static/runtime/main-4718a9919cedd596ae0a.js"
+      "static/chunks/commons.4961b7d5b846da4ce748.js",
+      "static/runtime/main-719bc34392ec9206b90a.js"
     ]
   }
 }

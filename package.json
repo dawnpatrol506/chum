@@ -2,13 +2,14 @@
   "name": "chum",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "functions/index.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next",
     "build": "next build",
     "export": "next export",
     "deploy": "next build && next export && firebase deploy",
-    "serve": "next build && next export && firebase serve"
+    "serve": "next build && next export && firebase serve",
+    "host": "next build && next export && firebase serve --only hosting"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "axios": "^0.18.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "firebase": "^5.7.0",
     "firebase-admin": "^6.3.0",
     "firebase-functions": "^2.1.0",
     "isomorphic-unfetch": "^3.0.0",
