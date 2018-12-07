@@ -45,6 +45,11 @@ class Index extends React.Component {
                 <div className="row">
                     <button className="btn btn-medium center-align" onClick={this.loginWithGoogle}>Login with Google</button>
                 </div>
+                <div className="row">
+                    <Link className="col s4 offset-s8" href="/signUp">
+                        <a>Sign Up</a>
+                    </Link>
+                </div>
             </LoginLayout>
         )
     }

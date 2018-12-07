@@ -15,11 +15,16 @@ class LoginEmail extends React.Component {
     }
 
     handleSubmit = (event) => {
-        axios.post('/api/v1/login', {
+        this.setState({message: ''});
+        axios.post('/api/v1/auth/email', {
             email: this.state.email,
             password: this.state.password
         })
-            .then(res => console.log(res))
+            .then(res => {
+                if(res.data.error){
+                    this.setState({message: res.data.error, email: '', password: ''});
+                }
+            })
         event.preventDefault();
     }
 
@@ -47,6 +52,9 @@ class LoginEmail extends React.Component {
                             <div className="input-field col s12">
                                 <input className="btn btn-small" type="submit" value="Submit" />
                             </div>
+                        </div>
+                        <div className="row red-text">
+                            <p>{this.state.message}</p>
                         </div>
                     </form>
                 </div>

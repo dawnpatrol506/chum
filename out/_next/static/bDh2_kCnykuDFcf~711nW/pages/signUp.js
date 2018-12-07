@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{272:function(n,o,p){__NEXT_REGISTER_PAGE("/signUp",function(){return n.exports=p(273),{page:n.exports.default}})},273:function(n,o){}},[[272,1]]]);
