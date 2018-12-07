@@ -1,5 +1,5 @@
 {
-  "../../modules/_core": [
+  "../modules/_core": [
     {
       "id": 0,
       "name": "./node_modules/core-js/library/modules/_core.js",
@@ -439,7 +439,7 @@
       "publicPath": "static/chunks/commons.76757ae52359ab6c9c2b.js"
     }
   ],
-  "../../modules/_wks-ext": [
+  "./_wks-ext": [
     {
       "id": 55,
       "name": "./node_modules/core-js/library/modules/_wks-ext.js",

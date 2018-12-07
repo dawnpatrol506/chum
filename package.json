@@ -7,11 +7,13 @@
     "dev": "node server.js",
     "build": "next build",
     "export": "next export",
-    "deploy": "next build && next export && firebase deploy"
+    "deploy": "next build && next export && firebase deploy",
+    "serve": "next build && next export && firebase serve"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "firebase-admin": "^6.3.0",

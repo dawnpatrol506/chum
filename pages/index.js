@@ -1,25 +1,42 @@
-const fetch = require('isomorphic-unfetch');
+const axios = require('axios');
 
-class App extends React.Component {
-    constructor(props){
+class LoginForm extends React.Component {
+    constructor(props) {
         super(props);
-        this.state = {thing: 1};
-
+        this.state = { };
     }
 
-    componentWillMount(){
-        fetch('/api/v1/test')
-            .then( r => r.json())
-            .then(data => this.setState({thing: data.thing}));
+    handleChange = (event) => {
+        const target = event.target;
+        const name = target.name;
+
+        this.setState({[name]: target.value});
     }
 
-    render(){
+    handleSubmit = (event) => {
+        axios.post('/api/v1/login', {
+            first: this.state.first,
+            last: this.state.last
+        })
+        .then(res => console.log(res))
+        event.preventDefault();
+    }
+    
+    render() {
         return (
-            <div>
-                <p>Testing {this.state.thing} </p>
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    First: 
+                    <input name="first" type="text" value={this.state.first} onChange={this.handleChange} />
+                </label>
+                <label>
+                    Last:
+                    <input name="last" type="text" value={this.state.last} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
         )
     }
 }
 
-export default App;
+export default LoginForm;
