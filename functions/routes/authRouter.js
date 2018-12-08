@@ -15,17 +15,31 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 router.post('/google', (req, res) => {
+    const user = req.body.user;
+    
+    const userRef = db.collection('users').doc(user.uid);
+    userRef.get()
+        .then(doc => {
+            if(!doc.exists){
+                userRef.set({
+                    userName: user.displayName,
+                    email: user.email,
+                    userAlias: 'tbd'
+                })
+            }
+        })
+    
     res.json({ uid: req.body.user.uid });
 })
 
 router.post('/email', (req, res) => {
     auth.signInWithEmailAndPassword(req.body.email, req.body.password)
         .then(user => {
-            res.json({ user });
+            res.json({ uid: user.uid });
         })
         .catch(err => {
             console.log('ERROR', err);
-            switch (err.code){
+            switch (err.code) {
                 case 'auth/user-not-found':
                     msg = 'User not found';
                     break;
@@ -39,15 +53,24 @@ router.post('/email', (req, res) => {
                     msg = 'An Error occurred';
                     break;
             }
-            
-            res.json({error: msg});
+
+            res.json({ error: msg });
         })
 })
 
 router.post('/signup', (req, res) => {
     let user = req.body.user;
     auth.createUserAndRetrieveDataWithEmailAndPassword(user.email, user.password)
-        .then(user => res.json({ uid: user.uid }));
+        .then(data => {
+            const userRef = db.collection('users').doc(data.user.uid);
+            userRef.set({
+                userName: `${user.first} ${user.last}`,
+                userAlias: user.displayName,
+                email: user.email
+            })
+
+            res.json({ uid: data.user.uid })
+        });
 })
 
 module.exports = router;
