@@ -24,6 +24,11 @@ class LoginEmail extends React.Component {
                 if(res.data.error){
                     this.setState({message: res.data.error, email: '', password: ''});
                 }
+                else{
+                    sessionStorage.setItem('uid', res.data.user.user.uid);
+                    location.replace('/main');
+                }
+
             })
         event.preventDefault();
     }

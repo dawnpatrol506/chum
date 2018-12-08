@@ -16,7 +16,7 @@ class SignUp extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        
+
         this.setState({ message: '' });
         if (this.state.password !== this.state.passwordRepeat) {
             console.log('mismatch');
@@ -31,7 +31,10 @@ class SignUp extends React.Component {
         axios.post('/api/v1/auth/signup', {
             user: this.state
         })
-            .then(res => console.log(res.data));
+            .then(res => {
+                sessionStorage.setItem('uid', res.data.uid)
+                location.replace('/main');
+            });
     }
 
     render() {

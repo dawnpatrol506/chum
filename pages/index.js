@@ -28,7 +28,10 @@ class Index extends React.Component {
                     axios.post('api/v1/auth/google', {
                         user: auth.currentUser
                     })
-                    .then(data => console.log(data))
+                    .then(data => {
+                        sessionStorage.setItem('uid', data.data.uid);
+                        location.replace('/main');
+                    })
                 }
             })
             .catch(err => { if (err) throw err });

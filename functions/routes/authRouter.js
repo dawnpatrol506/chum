@@ -15,14 +15,13 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 router.post('/google', (req, res) => {
-    console.log('User', req.body.user);
-    res.json({ success: true });
+    res.json({ uid: req.body.user.uid });
 })
 
 router.post('/email', (req, res) => {
     auth.signInWithEmailAndPassword(req.body.email, req.body.password)
         .then(user => {
-            console.log(user);
+            res.json({ user });
         })
         .catch(err => {
             console.log('ERROR', err);
@@ -48,7 +47,7 @@ router.post('/email', (req, res) => {
 router.post('/signup', (req, res) => {
     let user = req.body.user;
     auth.createUserAndRetrieveDataWithEmailAndPassword(user.email, user.password)
-        .then(user => res.json(user));
+        .then(user => res.json({ uid: user.uid }));
 })
 
 module.exports = router;
