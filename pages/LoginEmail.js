@@ -25,7 +25,7 @@ class LoginEmail extends React.Component {
                     this.setState({message: res.data.error, email: '', password: ''});
                 }
                 else{
-                    sessionStorage.setItem('uid', res.data.user.user.uid);
+                    sessionStorage.setItem('uid', res.data.uid);
                     location.replace('/main');
                 }
 
@@ -43,13 +43,13 @@ class LoginEmail extends React.Component {
                     >
                         <div className="row">
                             <div className="input-field col s12">
-                                <input name="email" type="text" value={this.state.first} onChange={this.handleChange} />
+                                <input id="email" name="email" type="text" value={this.state.first} onChange={this.handleChange} />
                                 <label for="email">Email</label>
                             </div>
                         </div>
                         <div className="row">
                             <div className="input-field col s12">
-                                <input name="password" type="password" value={this.state.last} onChange={this.handleChange} />
+                                <input id="password" name="password" type="password" value={this.state.last} onChange={this.handleChange} />
                                 <label for="password">Password</label>
                             </div>
                         </div>

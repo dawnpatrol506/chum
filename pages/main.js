@@ -1,5 +1,9 @@
+import MainLayout from '../components/mainLayout';
+
 const Main = () => (
-    <div>Under Constructions</div>
+    <MainLayout>
+        <div>TEST</div>
+    </MainLayout>
 )
 
 export default Main;

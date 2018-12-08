@@ -35,7 +35,7 @@ router.post('/google', (req, res) => {
 router.post('/email', (req, res) => {
     auth.signInWithEmailAndPassword(req.body.email, req.body.password)
         .then(user => {
-            res.json({ uid: user.uid });
+            res.json({ uid: user.user.uid });
         })
         .catch(err => {
             console.log('ERROR', err);
