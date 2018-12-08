@@ -46,7 +46,7 @@ router.post('/email', (req, res) => {
 })
 
 router.post('/signup', (req, res) => {
-    let user = req.body;
+    let user = req.body.user;
     auth.createUserAndRetrieveDataWithEmailAndPassword(user.email, user.password)
         .then(user => res.json(user));
 })
