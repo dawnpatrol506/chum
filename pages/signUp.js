@@ -33,8 +33,9 @@ class SignUp extends React.Component {
         })
             .then(res => {
                 sessionStorage.setItem('uid', res.data.uid)
-                location.replace('/main');
-            });
+                try {location.replace('/main');}
+                catch(e) {location = '/main'}
+    });
     }
 
     render() {

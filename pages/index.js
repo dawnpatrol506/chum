@@ -30,7 +30,8 @@ class Index extends React.Component {
                     })
                     .then(data => {
                         sessionStorage.setItem('uid', data.data.uid);
-                        location.replace('/main');
+                        try {location.replace('/main');}
+                        catch(e) {location = '/main'}
                     })
                 }
             })

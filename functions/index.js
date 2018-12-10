@@ -9,8 +9,10 @@ app.use(express.urlencoded({ extended: true }))
 
 //ROUTES
 const authRouter = require('./routes/authRouter');
+const locationRouter = require('./routes/locationRouter');
 
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/location', locationRouter);
 
 //DEFAULTS
 app.get('*', (req, res) => {

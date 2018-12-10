@@ -26,8 +26,9 @@ class LoginEmail extends React.Component {
                 }
                 else{
                     sessionStorage.setItem('uid', res.data.uid);
-                    location.replace('/main');
-                }
+                    try {location.replace('/main');}
+                    catch(e) {location = '/main'}
+            }
 
             })
         event.preventDefault();
